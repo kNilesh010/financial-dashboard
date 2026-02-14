@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Equity Intelligence Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Global Equity Intelligence Dashboard</h1>
+      <p>Quantamental stock analysis using financial strength, technical structure, valuation, and management guidance.</p>
+    </header>
+
+    <section class="card">
+      <h2>Company Inputs</h2>
+      <form id="analysis-form">
+        <div class="grid">
+          <label>Company Name <input required name="company" placeholder="Example: ASML Holding" /></label>
+          <label>Ticker <input required name="ticker" placeholder="ASML" /></label>
+          <label>Industry <input required name="industry" placeholder="Semiconductor Equipment" /></label>
+          <label>Region <input required name="region" placeholder="Europe" /></label>
+
+          <label>Current Price ($) <input required type="number" min="0" step="0.01" name="price" value="120" /></label>
+          <label>Forward P/E <input required type="number" min="1" step="0.1" name="fpe" value="18" /></label>
+          <label>Sector Median P/E <input required type="number" min="1" step="0.1" name="sectorPe" value="21" /></label>
+          <label>FCF Yield (%) <input required type="number" step="0.1" name="fcfYield" value="4.6" /></label>
+
+          <label>Revenue CAGR (3Y, %) <input required type="number" step="0.1" name="revGrowth" value="14" /></label>
+          <label>EPS CAGR (3Y, %) <input required type="number" step="0.1" name="epsGrowth" value="16" /></label>
+          <label>Operating Margin (%) <input required type="number" step="0.1" name="opMargin" value="26" /></label>
+          <label>Revenue → Profit Conversion (%) <input required type="number" step="0.1" name="conversion" value="24" /></label>
+
+          <label>Debt / EBITDA <input required type="number" min="0" step="0.1" name="debtEbitda" value="1.2" /></label>
+          <label>ROIC (%) <input required type="number" step="0.1" name="roic" value="20" /></label>
+          <label>Industry Growth (Next 3Y, %) <input required type="number" step="0.1" name="industryGrowth" value="11" /></label>
+          <label>Product Relative Growth vs Industry (%) <input required type="number" step="0.1" name="relativeGrowth" value="3" /></label>
+
+          <label>Above 200DMA? 
+            <select name="above200">
+              <option value="yes" selected>Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label>Bullish Crossover Signal?
+            <select name="bullishSignal">
+              <option value="yes" selected>Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label>RSI (14D) <input required type="number" min="1" max="100" step="0.1" name="rsi" value="57" /></label>
+          <label>Volatility (Annualized, %) <input required type="number" min="1" step="0.1" name="volatility" value="28" /></label>
+
+          <label>Management Guidance Confidence (1-10)
+            <input required type="number" min="1" max="10" name="guidance" value="8" />
+          </label>
+          <label>AI Quality Confidence (1-10)
+            <input required type="number" min="1" max="10" name="dataConfidence" value="8" />
+          </label>
+        </div>
+        <button type="submit">Generate Institutional-Grade Report</button>
+      </form>
+    </section>
+
+    <section id="report" class="card hidden">
+      <h2>Analysis Report</h2>
+      <div id="report-content"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
